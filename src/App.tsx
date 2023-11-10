@@ -1,5 +1,13 @@
+import { ThemeProvider } from 'styled-components'
+import { theme } from './styles/theme'
+import { GlobalStyle } from './styles/global'
+
 function App() {
-  return <h1>Hello World - Getting Started</h1>;
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App

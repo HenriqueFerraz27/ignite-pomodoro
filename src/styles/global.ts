@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   *,
@@ -15,12 +15,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :focus {
-    outline: 2px solid ${({theme}) => theme.colors.green[200]};
+    outline: 2px solid ${({ theme }) => theme.colors.green[200]};
   }
 
   body {
-    background-color: ${({theme}) => theme.colors.black[400]};
-    color: ${({theme}) => theme.colors.gray[200]};
+    background-color: ${({ theme }) => theme.colors.black[400]};
+    color: ${({ theme }) => theme.colors.gray[200]};
   }
 
   @media (max-width: 1024px) {
@@ -60,4 +60,4 @@ export const GlobalStyle = createGlobalStyle`
   strong {
     font-weight: 700;
   }
-`;
+`
