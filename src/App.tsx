@@ -1,11 +1,15 @@
 import { ThemeProvider } from 'styled-components'
 import { darkTheme } from './styles/themes'
 import { GlobalStyle } from './styles/global'
+import { BrowserRouter } from 'react-router-dom'
+import Router from './Router'
 
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <h1>Ignite Pomodoro</h1>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
       <GlobalStyle />
     </ThemeProvider>
   )
