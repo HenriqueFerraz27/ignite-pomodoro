@@ -19,8 +19,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }) => theme.colors.base.background};
     color: ${({ theme }) => theme.colors.base.text.base};
+    background-color: ${({ theme }) => theme.colors.base.background};
   }
 
   @media (max-width: 1024px) {
@@ -58,6 +58,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   strong {
-    font-weight: 700;
+    font-weight: ${({ theme }) => theme.typography.weight.bold};
   }
 `
