@@ -2,7 +2,7 @@
 
 import { NavLink } from 'react-router-dom'
 import * as S from './styles'
-import logoIgniteIcon from '/logos/ignite-icon.svg'
+import logoIgniteHorizontal from '/logos/ignite-horizontal.svg'
 import * as Icon from 'phosphor-react'
 
 export const Header = () => {
@@ -10,7 +10,7 @@ export const Header = () => {
     <S.Header>
       <h1>
         <NavLink to="/" title="Ignite Pomodoro">
-          <img src={logoIgniteIcon} alt="Ignite Pomodoro" />
+          <img src={logoIgniteHorizontal} alt="Ignite Pomodoro" />
         </NavLink>
       </h1>
 

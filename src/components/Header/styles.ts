@@ -8,15 +8,15 @@ export const Header = styled.header`
   margin: ${pxToRem(40)};
 
   h1 a img {
-    width: 2.5rem;
+    height: ${pxToRem(40)};
   }
 
   nav ul {
     display: flex;
-    gap: 0.3125rem;
+    gap: ${pxToRem(5)};
 
     a {
-      padding: 0.78125rem;
+      padding: ${pxToRem(12.5)};
       color: ${({ theme }) => theme.colors.base.text.title};
       border-top: 3px solid transparent;
       border-bottom: 3px solid transparent;
@@ -32,8 +32,8 @@ export const Header = styled.header`
       }
 
       svg {
-        width: 1.5625rem;
-        height: 1.5625rem;
+        width: ${pxToRem(25)};
+        height: ${pxToRem(25)};
       }
     }
   }
