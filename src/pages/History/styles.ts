@@ -1,6 +1,60 @@
 import styled from 'styled-components'
 import { pxToRem } from '../../utils'
 
-export const History = styled.div``
+export const History = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-width: 80%;
+  padding: ${pxToRem(70)} ${pxToRem(90)};
+  padding-top: ${pxToRem(30)};
 
-export const Table = styled.table``
+  h1 {
+    color: ${({ theme }) => theme.colors.base.text.title};
+    font-size: ${({ theme }) => theme.typography.size.xl};
+    font-weight: ${({ theme }) => theme.typography.weight.bold};
+  }
+`
+
+export const List = styled.div`
+  overflow: auto;
+  margin-top: ${pxToRem(32)};
+
+  table {
+    min-width: ${pxToRem(500)};
+    width: 100%;
+    border-radius: ${pxToRem(8)};
+    overflow: hidden;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: ${pxToRem(16)};
+      font-size: ${({ theme }) => theme.typography.size.sm};
+      line-height: ${({ theme }) => theme.typography.lineHeight.base};
+
+      &:first-child {
+        padding-left: ${pxToRem(24)};
+      }
+
+      &:last-child {
+        padding-right: ${pxToRem(24)};
+      }
+    }
+
+    th {
+      color: ${({ theme }) => theme.colors.base.text.title};
+      text-align: left;
+      font-weight: ${({ theme }) => theme.typography.weight.bold};
+      background-color: ${({ theme }) => theme.colors.base.shape.primary};
+    }
+
+    td {
+      background-color: ${({ theme }) => theme.colors.base.shape.secondary};
+      border-top: 4px solid ${({ theme }) => theme.colors.base.shape.tertiary};
+
+      &:first-child {
+        width: 50%;
+      }
+    }
+  }
+`

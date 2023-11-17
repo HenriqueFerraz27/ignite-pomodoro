@@ -35,7 +35,7 @@ export const Home = () => {
         </S.Pomodoro>
 
         <S.PomodoroButton type="submit">
-          <Icon.Play /> Começar
+          <Icon.Play weight="bold" /> Começar
         </S.PomodoroButton>
       </form>
     </S.Home>

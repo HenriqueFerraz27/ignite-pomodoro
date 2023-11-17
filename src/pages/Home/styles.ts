@@ -34,8 +34,8 @@ export const FormContainer = styled.div`
 `
 
 export const BaseInput = styled.input`
-  height: 2.5rem;
-  padding: 0 0.5rem;
+  height: ${pxToRem(40)};
+  padding: 0 ${pxToRem(8)};
   background-color: transparent;
   border: none;
   border-bottom: 2px solid ${({ theme }) => theme.colors.base.text.placeholder};
@@ -88,13 +88,18 @@ export const PomodoroButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: ${pxToRem(8)};
   width: 100%;
-  padding: 1rem;
+  padding: ${pxToRem(16)};
   border-radius: ${pxToRem(8)};
   color: ${({ theme }) => theme.colors.base.text.title};
   font-weight: ${({ theme }) => theme.typography.weight.bold};
   background-color: ${({ theme }) => theme.colors.brand.light};
+
+  svg {
+    width: ${pxToRem(24)};
+    height: ${pxToRem(24)};
+  }
 
   &:not(:disabled):hover {
     background-color: ${({ theme }) => theme.colors.brand.dark};
