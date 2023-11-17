@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import styled from 'styled-components'
 import { pxToRem } from '../../utils'
 
@@ -56,5 +57,30 @@ export const List = styled.div`
         width: 50%;
       }
     }
+  }
+`
+
+const STATUS_FEEDBACKS = {
+  concluded: 'concluded',
+  inProgress: `inProgress`,
+  interrupt: `interrupt`,
+} as const
+
+interface StatusProps {
+  feedback: keyof typeof STATUS_FEEDBACKS
+}
+
+export const Status = styled.span<StatusProps>`
+  display: flex;
+  align-items: center;
+  gap: ${pxToRem(8)};
+
+  &::before {
+    content: '';
+    width: ${pxToRem(8)};
+    height: ${pxToRem(8)};
+    border-radius: 100%;
+    background-color: ${(props) =>
+    props.theme.colors.feedback[STATUS_FEEDBACKS[props.feedback]].light};
   }
 `

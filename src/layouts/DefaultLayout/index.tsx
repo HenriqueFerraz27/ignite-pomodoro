@@ -1,9 +1,8 @@
-import { Outlet } from 'react-router-dom'
-import Header from '../../components/Header'
-
 import * as S from './styles'
+import { Header } from '../../components'
+import { Outlet } from 'react-router-dom'
 
-function DefaultLayout() {
+export const DefaultLayout = () => {
   return (
     <S.DefaultLayout>
       <Header />
@@ -11,5 +10,3 @@ function DefaultLayout() {
     </S.DefaultLayout>
   )
 }
-
-export default DefaultLayout

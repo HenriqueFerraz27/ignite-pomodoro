@@ -32,5 +32,3 @@ export const Header = () => {
     </S.Header>
   )
 }
-
-export default Header
