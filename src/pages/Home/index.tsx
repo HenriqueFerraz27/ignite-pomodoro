@@ -41,5 +41,3 @@ export const Home = () => {
     </S.Home>
   )
 }
-
-export default Home
