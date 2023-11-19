@@ -27,10 +27,14 @@ export const List = styled.div`
     overflow: hidden;
     border-collapse: collapse;
 
+    * {
+      font-size: ${({ theme }) => theme.typography.size.sm};
+    }
+
     th,
     td {
       padding: ${pxToRem(16)};
-      font-size: ${({ theme }) => theme.typography.size.sm};
+      
       line-height: ${({ theme }) => theme.typography.lineHeight.base};
 
       &:first-child {
@@ -82,5 +86,6 @@ export const Status = styled.span<StatusProps>`
     border-radius: 100%;
     background-color: ${(props) =>
     props.theme.colors.feedback[STATUS_FEEDBACKS[props.feedback]].light};
+    transform: translateY(-15%);
   }
 `
