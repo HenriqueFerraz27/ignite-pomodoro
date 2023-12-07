@@ -82,6 +82,12 @@ export const Home = () => {
   const minutesAmountInput = watch('minutesAmountInput')
   const isSubmitDisable = !task || !minutesAmountInput
 
+  useEffect(() => {
+    if (activeCycle) {
+      document.title = `${minutes}:${seconds} - ${activeCycle.task}`
+    }
+  }, [minutes, seconds, activeCycle])
+
   return (
     <S.Home>
       <form onSubmit={handleSubmit(handleCreateNewCycle)}>
