@@ -31,6 +31,7 @@ export const Home = () => {
   const { register, handleSubmit, watch, reset } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
     defaultValues: {
+      task: '',
       minutesAmountInput: 25,
     },
   })
@@ -38,13 +39,17 @@ export const Home = () => {
   const activeCycle = cycles.find(cycle => cycle.id === activeCycleId)
 
   useEffect(() => {
+    let interval: number
+
     if (activeCycle) {
-      setInterval(() => {
+      interval = setInterval(() => {
         setAmountSecondsPassed(
           differenceInSeconds(new Date(), activeCycle.startDate),
         )
       }, 1000)
     }
+
+    return () => clearInterval(interval)
   }, [activeCycle])
 
   const handleCreateNewCycle = (data: NewCycleFormData) => {
@@ -59,6 +64,7 @@ export const Home = () => {
 
     setCycles(state => [...state, newCycle])
     setActiveCycleId(id)
+    setAmountSecondsPassed(0)
 
     reset()
   }
