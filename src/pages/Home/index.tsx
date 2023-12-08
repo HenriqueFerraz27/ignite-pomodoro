@@ -21,6 +21,7 @@ interface Cycle {
   task: string
   minutesAmount: number
   startDate: Date
+  interruptedDate?: Date
 }
 
 export const Home = () => {
@@ -69,6 +70,21 @@ export const Home = () => {
     reset()
   }
 
+  const handleInterruptCycle = () => {
+    setCycles(
+      cycles.map(cycle => {
+        if (cycle.id === activeCycleId) {
+          cycle.interruptedDate = new Date()
+        }
+        return cycle
+      }),
+    )
+
+    setActiveCycleId(null)
+  }
+
+  console.log(cycles)
+
   const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
   const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0
 
@@ -98,6 +114,7 @@ export const Home = () => {
             type="text"
             list="task-suggestion"
             placeholder="Dê um nome para o seu projeto"
+            disabled={!!activeCycle}
             {...register('task')}
           />
 
@@ -117,23 +134,30 @@ export const Home = () => {
             step={5}
             min={5}
             max={60}
+            disabled={!!activeCycle}
             {...register('minutesAmountInput', { valueAsNumber: true })}
           />
 
           <span>minutos.</span>
         </S.FormContainer>
 
-        <S.Pomodoro>
+        <S.Countdown>
           <span>{minutes[0]}</span>
           <span>{minutes[1]}</span>
           <S.Separator>:</S.Separator>
           <span>{seconds[0]}</span>
           <span>{seconds[1]}</span>
-        </S.Pomodoro>
+        </S.Countdown>
 
-        <S.PomodoroButton type="submit" disabled={isSubmitDisable}>
-          <Icon.Play weight="bold" /> Começar
-        </S.PomodoroButton>
+        {activeCycle ? (
+          <S.StopCountdownButton type="button" onClick={handleInterruptCycle}>
+            <Icon.HandPalm weight="bold" /> Interromper
+          </S.StopCountdownButton>
+        ) : (
+          <S.StartCountdownButton type="submit" disabled={isSubmitDisable}>
+            <Icon.Play weight="bold" /> Começar
+          </S.StartCountdownButton>
+        )}
       </form>
     </S.Home>
   )

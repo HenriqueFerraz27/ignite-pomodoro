@@ -60,7 +60,7 @@ export const MinutesAmountInput = styled(BaseInput)`
   width: ${pxToRem(75)};
 `
 
-export const Pomodoro = styled.div`
+export const Countdown = styled.div`
   * {
     font-family: ${({ theme }) => theme.typography.family.robotoMono};
     font-size: ${({ theme }) => theme.typography.size['2xl']};
@@ -84,7 +84,7 @@ export const Separator = styled.div`
   overflow: hidden;
 `
 
-export const PomodoroButton = styled.button`
+export const BaseCountdownButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,19 +94,30 @@ export const PomodoroButton = styled.button`
   border-radius: ${pxToRem(8)};
   color: ${({ theme }) => theme.colors.base.text.title};
   font-weight: ${({ theme }) => theme.typography.weight.bold};
-  background-color: ${({ theme }) => theme.colors.brand.light};
 
   svg {
     width: ${pxToRem(24)};
     height: ${pxToRem(24)};
   }
 
-  &:not(:disabled):hover {
-    background-color: ${({ theme }) => theme.colors.brand.dark};
-  }
-
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;
+  }
+`
+
+export const StartCountdownButton = styled(BaseCountdownButton)`
+  background-color: ${({ theme }) => theme.colors.brand.light};
+
+  &:not(:disabled):hover {
+    background-color: ${({ theme }) => theme.colors.brand.dark};
+  }
+`
+
+export const StopCountdownButton = styled(BaseCountdownButton)`
+  background-color: ${({ theme }) => theme.colors.feedback.interrupt.light};
+
+  &:not(:disabled):hover {
+    background-color: ${({ theme }) => theme.colors.feedback.interrupt.dark};
   }
 `
