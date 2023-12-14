@@ -20,7 +20,7 @@ interface CyclesContextData {
   setAmountSecondsPassed: (seconds: React.SetStateAction<number>) => void
   markCurrentCycleAsFineshed: () => void
   handleInterruptCycle: () => void
-  handleCreateNewCycle: (data: CreateCycleData) => void
+  createNewCycle: (data: CreateCycleData) => void
 }
 
 export const CyclesContext = createContext({} as CyclesContextData)
@@ -50,7 +50,7 @@ export const CyclesContextProvider = ({
     )
   }
 
-  const handleCreateNewCycle = (data: CreateCycleData) => {
+  const createNewCycle = (data: CreateCycleData) => {
     const id = String(new Date().getTime())
 
     const newCycle: Cycle = {
