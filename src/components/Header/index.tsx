@@ -23,9 +23,9 @@ export const Header = () => {
           </li>
 
           <li>
-            <a href="/history" title="Histórico">
+            <NavLink to="/history" title="Histórico">
               <Icon.Scroll />
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>

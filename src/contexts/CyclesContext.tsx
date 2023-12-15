@@ -37,11 +37,11 @@ export const CyclesContextProvider = ({
   const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
   const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
 
-  const activeCycle = cycles.find(cycle => cycle.id === activeCycleId)
+  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
 
   const markCurrentCycleAsFineshed = () => {
-    setCycles(state =>
-      state.map(cycle => {
+    setCycles((state) =>
+      state.map((cycle) => {
         if (cycle.id === activeCycleId) {
           return { ...cycle, finishedDate: new Date() }
         } else {
@@ -61,14 +61,14 @@ export const CyclesContextProvider = ({
       startDate: new Date(),
     }
 
-    setCycles(state => [...state, newCycle])
+    setCycles((state) => [...state, newCycle])
     setActiveCycleId(id)
     setAmountSecondsPassed(0)
   }
 
   const handleInterruptCycle = () => {
-    setCycles(state =>
-      state.map(cycle => {
+    setCycles((state) =>
+      state.map((cycle) => {
         if (cycle.id === activeCycleId) {
           return { ...cycle, interruptedDate: new Date() }
         } else {

@@ -1,9 +1,14 @@
 import { useContext } from 'react'
 import * as S from './styles'
 import { CyclesContext } from '../../contexts'
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 
 export const History = () => {
   const { cycles } = useContext(CyclesContext)
+
+  console.log(cycles)
+
   return (
     <S.History>
       <h1>Meu Histórico</h1>
@@ -19,12 +24,17 @@ export const History = () => {
             </tr>
           </thead>
           <tbody>
-            {cycles.map(cycle => {
+            {cycles.map((cycle) => {
               return (
                 <tr key={cycle.id}>
                   <td>{cycle.task}</td>
-                  <td>{cycle.minutesAmount}</td>
-                  <td>{cycle.startDate.toISOString()}</td>
+                  <td>{cycle.minutesAmount} minutos</td>
+                  <td>
+                    {formatDistanceToNow(cycle.startDate, {
+                      addSuffix: true,
+                      locale: ptBR,
+                    })}
+                  </td>
                   <td>
                     {cycle.finishedDate && (
                       <S.Status feedback="concluded">Concluído</S.Status>
@@ -39,39 +49,6 @@ export const History = () => {
                 </tr>
               )
             })}
-
-            <tr>
-              <td>Conserto de débitos técnicos </td>
-              <td>20 minutos</td>
-              <td>Há 2 meses</td>
-              <td>
-                <S.Status feedback="inProgress">Concluído</S.Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Conserto de débitos técnicos </td>
-              <td>20 minutos</td>
-              <td>Há 2 meses</td>
-              <td>
-                <S.Status feedback="interrupt">Concluído</S.Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Conserto de débitos técnicos </td>
-              <td>20 minutos</td>
-              <td>Há 2 meses</td>
-              <td>
-                <S.Status feedback="inProgress">Concluído</S.Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Conserto de débitos técnicos </td>
-              <td>20 minutos</td>
-              <td>Há 2 meses</td>
-              <td>
-                <S.Status feedback="concluded">Concluído</S.Status>
-              </td>
-            </tr>
           </tbody>
         </table>
       </S.List>

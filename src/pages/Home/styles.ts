@@ -18,8 +18,6 @@ export const Home = styled.div`
   }
 `
 
-
-
 export const BaseCountdownButton = styled.button`
   display: flex;
   justify-content: center;

@@ -18,7 +18,7 @@ const newCycleFormValidationSchema = zod.object({
 type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
 export const Home = () => {
-  const { activeCycle, createNewCycle, handleInterruptCycle } =
+  const { activeCycle, createNewCycle, handleInterruptCycle, cycles } =
     useContext(CyclesContext)
 
   const NewCycleFormContext = useForm<NewCycleFormData>({
@@ -33,6 +33,7 @@ export const Home = () => {
 
   const handleCreateNewCycle = (data: NewCycleFormData) => {
     createNewCycle(data)
+    console.log(cycles)
     reset()
   }
 
