@@ -15,6 +15,7 @@ interface Cycle {
 }
 
 interface CyclesContextData {
+  cycles: Cycle[]
   activeCycle: Cycle | undefined
   amountSecondsPassed: number
   setAmountSecondsPassed: (seconds: React.SetStateAction<number>) => void
@@ -63,8 +64,6 @@ export const CyclesContextProvider = ({
     setCycles(state => [...state, newCycle])
     setActiveCycleId(id)
     setAmountSecondsPassed(0)
-
-    // reset()
   }
 
   const handleInterruptCycle = () => {
@@ -84,12 +83,13 @@ export const CyclesContextProvider = ({
   return (
     <CyclesContext.Provider
       value={{
+        cycles,
         activeCycle,
         amountSecondsPassed,
         setAmountSecondsPassed,
         markCurrentCycleAsFineshed,
         handleInterruptCycle,
-        handleCreateNewCycle,
+        createNewCycle,
       }}
     >
       {children}
