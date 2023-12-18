@@ -7,8 +7,6 @@ import ptBR from 'date-fns/locale/pt-BR'
 export const History = () => {
   const { cycles } = useContext(CyclesContext)
 
-  console.log(cycles)
-
   return (
     <S.History>
       <h1>Meu Histórico</h1>
@@ -24,7 +22,7 @@ export const History = () => {
             </tr>
           </thead>
           <tbody>
-            {cycles.map((cycle) => {
+            {cycles.map(cycle => {
               return (
                 <tr key={cycle.id}>
                   <td>{cycle.task}</td>
